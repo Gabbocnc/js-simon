@@ -4,6 +4,7 @@
 //Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei numeri da indovinare sono stati individuati.
 
 let randomNumber = document.querySelector('.randomNumber');
+let dNoneEl = document.querySelector('.d-none')
 
 
 //Visualizzare in pagina 5 numeri casuali.
@@ -26,9 +27,10 @@ for (let i = 0; i = numberRandom.length < 5; i++) {
 randomNumber.innerText = numberRandom.join(',');
 
 //setto timer di 30 secondi
-setTimeout (seconds, 30000);
+setTimeout (seconds, 5000);
 
 //aggiungo classe display none per far sparire i numeri
 function seconds() {
     randomNumber.classList.add('d-none');
+    dNoneEl.classList.remove('d-none')
 }
