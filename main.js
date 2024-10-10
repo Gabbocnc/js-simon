@@ -4,16 +4,22 @@
 //Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei numeri da indovinare sono stati individuati.
 
 let randomNumber = document.querySelector('.randomNumber');
-let dNoneEl = document.querySelector('.d-none')
-let submitEl = document.querySelector('.submit')
-let timerEl = document.querySelector('.timer')
+let dNoneEl = document.querySelector('.d-none');
+let submitEl = document.querySelector('.submit');
+let timerEl = document.querySelector('.timer');
 let secondi = 30;
-let risultatoEl = document.querySelector('.risultato')
-let numeroGiocatoreEl = document.querySelectorAll('.numberValue')
+let risultatoEl = document.querySelector('.risultato');
+let numeroGiocatoreEl = document.querySelectorAll('.numberValue');
+let giocaEl = document.querySelector('.gioca');
 
 
-//Visualizzare in pagina 5 numeri casuali.
+
+
+
+giocaEl.addEventListener('click', ()=> {
+    //Visualizzare in pagina 5 numeri casuali.
 //funzione che genera numero randomico
+
 function getRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -82,5 +88,6 @@ submitEl.addEventListener('click', () => {
     } else {
         risultatoEl.innerText = 'Nessun numero indovinato.';
     }
-
+   
 });
+})
