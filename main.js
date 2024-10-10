@@ -8,6 +8,9 @@ let dNoneEl = document.querySelector('.d-none')
 let submitEl = document.querySelector('.submit')
 let timerEl = document.querySelector('.timer')
 let secondi = 30;
+let risultatoEl = document.querySelector('.risultato')
+let numeroGiocatoreEl = document.querySelectorAll('.numberValue')
+
 
 //Visualizzare in pagina 5 numeri casuali.
 //funzione che genera numero randomico
@@ -30,30 +33,41 @@ randomNumber.innerText = numberRandom.join(',');
 
 const timers = setInterval(contoAllaRovescia, 1000);
 //funzione
-function contoAllaRovescia(){
-    
-    if (secondi > 0){
-        secondi --;
+function contoAllaRovescia() {
+
+    if (secondi > 0) {
+        secondi--;
         timerEl.innerHTML = secondi;
-    }else {
+    } else {
         clearInterval(timers);
     }
 }
-    
+
 
 //setto timer di 30 secondi
-const clock = setTimeout (seconds, 30000);
+const clock = setTimeout(seconds, 100);
 
 //aggiungo classe display none per far sparire i numeri e per far apparire gli input 
 function seconds() {
     randomNumber.classList.add('d-none');
     dNoneEl.classList.remove('d-none');
-    timerEl.classList.remove('d-none');
+    timerEl.classList.add('d-none');
 }
 
 
 
 //al click del pulsante sumbit effettuo la verifica dei numeri 
 submitEl.addEventListener('click', () => {
-
-})
+    let numeriGiocatore = [];
+    let valueNumber = numeroGiocatoreEl.value
+    for (let i = 0; i < numeroGiocatoreEl.length; i++) {
+        let value = parseInt(numeroGiocatoreEl[i].value);
+        if (!isNaN(value) && !isInArray(numeriGiocatore, value)) {
+            numeriGiocatore.push(value);
+        }
+    }
+    let check = [];
+    for (let i = 0; i < numberRandom.lenght; i++){
+        if (numeriGiocatore.includes(numberRandom[i]))
+    }
+});
