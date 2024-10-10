@@ -45,7 +45,7 @@ function contoAllaRovescia() {
 
 
 //setto timer di 30 secondi
-const clock = setTimeout(seconds, 100);
+const clock = setTimeout(seconds, 30000);
 
 //aggiungo classe display none per far sparire i numeri e per far apparire gli input 
 function seconds() {
@@ -66,8 +66,21 @@ submitEl.addEventListener('click', () => {
             numeriGiocatore.push(value);
         }
     }
-    let check = [];
-    for (let i = 0; i < numberRandom.lenght; i++){
-        if (numeriGiocatore.includes(numberRandom[i]))
+    //verifico se i numeri del giocatore corrispondono a quelli randomici
+    let numeriIndovinati = [];
+    for (let i = 0; i < numeriGiocatore.length; i++) {
+        const index = numberRandom.indexOf(numeriGiocatore[i]);
+        if (index !== -1) {
+            numeriIndovinati.push(numeriGiocatore[i]);
+            numberRandom.splice(index, 1); 
+        }
     }
+
+    // Mostro il risultato
+    if (numeriIndovinati.length > 0) {
+        risultatoEl.innerText = `Hai indovinato questi numeri : ${numeriIndovinati.join(', ')}`;
+    } else {
+        risultatoEl.innerText = 'Nessun numero indovinato.';
+    }
+
 });
