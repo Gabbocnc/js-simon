@@ -5,7 +5,7 @@
 
 let randomNumber = document.querySelector('.randomNumber');
 let dNoneEl = document.querySelector('.d-none')
-
+let submitEl = document.querySelector('.submit')
 
 //Visualizzare in pagina 5 numeri casuali.
 //funzione che genera numero randomico
@@ -27,10 +27,15 @@ for (let i = 0; i = numberRandom.length < 5; i++) {
 randomNumber.innerText = numberRandom.join(',');
 
 //setto timer di 30 secondi
-setTimeout (seconds, 5000);
+setTimeout (seconds, 300);
 
-//aggiungo classe display none per far sparire i numeri
+//aggiungo classe display none per far sparire i numeri e per far apparire gli input 
 function seconds() {
     randomNumber.classList.add('d-none');
     dNoneEl.classList.remove('d-none')
 }
+
+//al click del pulsante sumbit effettuo la verifica dei numeri 
+submitEl.addEventListener('click', () => {
+
+})
