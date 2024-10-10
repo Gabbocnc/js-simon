@@ -6,6 +6,8 @@
 let randomNumber = document.querySelector('.randomNumber');
 let dNoneEl = document.querySelector('.d-none')
 let submitEl = document.querySelector('.submit')
+let timerEl = document.querySelector('.timer')
+let secondi = 30;
 
 //Visualizzare in pagina 5 numeri casuali.
 //funzione che genera numero randomico
@@ -16,7 +18,7 @@ function getRandomNumber(min, max) {
 function isInArray(arr, num) {
     return arr.includes(num);
 }
-//ciclo for  < 5 in modo da prendere numeri
+//ciclo for  < 5 in modo da prendere 5 numeri
 let numberRandom = [];
 for (let i = 0; i = numberRandom.length < 5; i++) {
     const number = getRandomNumber(1, 100);
@@ -26,14 +28,30 @@ for (let i = 0; i = numberRandom.length < 5; i++) {
 }
 randomNumber.innerText = numberRandom.join(',');
 
+const timers = setInterval(contoAllaRovescia, 1000);
+//funzione
+function contoAllaRovescia(){
+    
+    if (secondi > 0){
+        secondi --;
+        timerEl.innerHTML = secondi;
+    }else {
+        clearInterval(timers);
+    }
+}
+    
+
 //setto timer di 30 secondi
-setTimeout (seconds, 300);
+const clock = setTimeout (seconds, 30000);
 
 //aggiungo classe display none per far sparire i numeri e per far apparire gli input 
 function seconds() {
     randomNumber.classList.add('d-none');
-    dNoneEl.classList.remove('d-none')
+    dNoneEl.classList.remove('d-none');
+    timerEl.classList.remove('d-none');
 }
+
+
 
 //al click del pulsante sumbit effettuo la verifica dei numeri 
 submitEl.addEventListener('click', () => {
