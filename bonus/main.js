@@ -13,7 +13,11 @@ let numeroGiocatoreEl = document.querySelectorAll('.numberValue');
 let giocaEl = document.querySelector('.gioca');
 
 
-//Visualizzare in pagina 5 numeri casuali.
+
+
+
+giocaEl.addEventListener('click', ()=> {
+    //Visualizzare in pagina 5 numeri casuali.
 //funzione che genera numero randomico
 
 function getRandomNumber(min, max) {
@@ -54,6 +58,7 @@ function seconds() {
     randomNumber.classList.add('d-none');
     dNoneEl.classList.remove('d-none');
     timerEl.classList.add('d-none');
+    submitEl.classLis.remove('d-none');
 }
 
 
@@ -86,4 +91,4 @@ submitEl.addEventListener('click', () => {
     }
    
 });
-
+})
